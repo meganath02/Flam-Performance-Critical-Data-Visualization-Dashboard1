@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🌈 Animated background gradient */
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body {
+  background: linear-gradient(-45deg, #020617, #0f172a, #1e293b, #020617);
+  background-size: 400% 400%;
+  animation: bgShift 25s ease infinite;
+
+  @apply text-slate-100 font-sans;
+  overflow-x: hidden;
+}
+
+h2 {
+  @apply text-2xl font-bold text-cyan-400 mb-3 flex items-center gap-2;
+}
+
+.app-shell {
+  @apply min-h-screen flex flex-col p-6 gap-4;
+}
