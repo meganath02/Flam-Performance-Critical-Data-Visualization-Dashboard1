@@ -1,27 +1,38 @@
-Performance-Critical Data Visualization Dashboard
+# Performance-Critical Data Visualization Dashboard
 
-This project is a high-performance real-time data visualization dashboard built with Next.js 14+ App Router and TypeScript. It is designed to render and update 10,000+ data points at 60fps while maintaining smooth interactivity and minimal memory usage. The dashboard supports multiple chart types including line, bar, scatter, and heatmap, along with features like real-time updates every 100ms, interactive zoom and pan, data filtering, and time range selection. Additionally, it uses data aggregation to group points by 1 minute, 5 minutes, or 1 hour, and includes virtual scrolling to handle large datasets in tables. The design is fully responsive and works across desktop, tablet, and mobile devices.
+## Project Overview
+This project is a **high-performance real-time data visualization dashboard** built with **Next.js 14+ App Router** and **TypeScript**. It is designed to render and update **10,000+ data points at 60fps** while maintaining smooth interactivity and minimal memory usage. The dashboard supports multiple chart types including **line, bar, scatter, and heatmap**, along with features like real-time updates every 100ms, interactive zoom and pan, data filtering, and time range selection. Data aggregation allows grouping points by 1 minute, 5 minutes, or 1 hour, and virtual scrolling enables handling large datasets in tables. The design is fully responsive across desktop, tablet, and mobile devices.
 
-The dashboard leverages a Canvas + SVG hybrid rendering approach to ensure high-performance visuals. React optimizations, such as useMemo, useCallback, React.memo, and useTransition, are used to prevent unnecessary re-renders. Custom hooks manage data streaming, chart rendering, and performance monitoring, while server components handle initial dataset loading and client components manage interactivity. The application does not rely on external chart libraries like D3.js or Chart.js, giving full control over rendering performance. For additional performance, Web Workers can be used to process data in the background without blocking the main thread.
+## Features
+- Multiple chart types: Line, Bar, Scatter, Heatmap  
+- Real-time updates every 100ms  
+- Interactive controls: Zoom, Pan, Filter, Time-range selection  
+- Data aggregation by 1min, 5min, 1hour  
+- Virtual scrolling for large tables  
+- Responsive design for all devices  
+- FPS and memory usage monitoring  
+- Performance stress test mode  
 
-To get started, clone the repository and install dependencies using:
+## Technical Stack
+- **Frontend:** Next.js 14+ App Router + TypeScript  
+- **Rendering:** Canvas + SVG hybrid approach  
+- **State Management:** React Hooks + Context API  
+- **Data:** Realistic time-series simulation  
+- **Bonus:** Web Workers for background data processing  
+- **No chart libraries** used (D3.js, Chart.js)  
 
+## Performance Optimizations
+- Memoization using `useMemo` and `useCallback`  
+- `React.memo` for expensive components  
+- Non-blocking updates using `useTransition`  
+- Virtualized lists for large datasets  
+- Efficient Canvas rendering with `requestAnimationFrame`  
+- Concurrent rendering and proper cleanup of hooks  
+
+## Setup and Running
+Clone the repository and install dependencies:
+
+```bash
 git clone <repository-url>
 cd performance-dashboard
 npm install
-
-
-To run the development server:
-
-npm run dev
-
-
-This will start the dashboard locally at http://localhost:3000. For production build, use:
-
-npm run build
-npm run start
-
-
-The dashboard includes a FPS counter, memory usage display, and controls to adjust the data load in real-time. Users can stress-test the dashboard to monitor performance under heavy data updates. Benchmarks have been optimized to maintain 60fps with 10,000+ data points, memory growth under 1MB per hour, and interaction latency below 100ms. Stretch goals include handling 50,000+ points at 30fps and 100,000+ points usable while maintaining smooth mobile performance.
-
-Future improvements include WebGL rendering, OffscreenCanvas for background drawing, offline support using Service Workers, and real-time collaboration features. This project demonstrates modern Next.js and React patterns for building production-quality, performance-critical web applications while balancing feature richness with speed and responsiveness.
